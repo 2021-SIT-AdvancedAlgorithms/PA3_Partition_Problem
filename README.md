@@ -44,6 +44,6 @@ Note that different inputs will be used for grading.
     - Max 10pts for each student (calculated sepereatly from the _normal_ extra credits)
     - All the formats must be followed
 # Competition
-1. Competition will be based on finding the all the possible partitions using DP algorithm.
+1. Competition will be based on finding all the possible partitions using DP algorithm.
 1. `Input_5.txt` will be used for competition (`make competition` command). (This can be changed due to fairness issues)
 1. Obviously, your program must correctly testify the partitionablity and find all the existing partitions.
