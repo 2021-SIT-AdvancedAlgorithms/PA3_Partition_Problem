@@ -3,6 +3,7 @@
   - BUGFIX : sum 초기화 https://github.com/2021-SIT-AdvancedAlgorithms/PA3_Partition_Problem/issues/1#issue-1054346998 Thanks to 민서!
   - BUGFIX : 출력 순서 sorting과 상관없게 유지 https://github.com/2021-SIT-AdvancedAlgorithms/PA3_Partition_Problem/issues/2#issue-1061171344 Thanks to 민서!
   - FEATURE : 실행 시간 측정 코드 추가
+
 Note that there is nothing to change on your kernel files.
 
 # Instructions
