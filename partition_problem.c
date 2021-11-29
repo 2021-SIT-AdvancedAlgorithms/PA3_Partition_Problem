@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include <time.h>
 
 void sort_elements_by_idx(element *elements, int start, int end) {
     if (start >= end)
@@ -62,6 +63,9 @@ int main(int argc, char** argv)
 
 	int partitionable = -1;
 
+	struct timeval start;
+	gettimeofday(&start, NULL);
+
 	if (strcmp(argv[1], "g") == 0) {
 		partitionable = partition_by_greedy(elements, nmemb);
 
@@ -71,6 +75,10 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Invalid arguments\n");
 		exit(1);
 	}
+
+	struct timeval end;
+	gettimeofday(&end, NULL);
+	fprintf(stderr, "elapsed time: %lf\n", ((end.tv_sec + end.tv_usec * 0.000001) - (start.tv_sec + start.tv_usec * 0.000001)));
 
 	/* Print result */
 
