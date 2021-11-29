@@ -1,5 +1,40 @@
 #include "kernel.h"
 
+void sort_elements_by_idx(element *elements, int start, int end) {
+    if (start >= end)
+        return;
+
+    int pivot = start;
+    int i = pivot + 1;
+    int j = end;
+    element temp;
+    while (i <= j)
+    {
+        while (i <= end && elements[i].index <= elements[pivot].index)
+        {
+            i++;
+        }
+        while (j > start && elements[j].index >= elements[pivot].index)
+        {
+            j--;
+        }
+        if (i > j)
+        {
+            temp = elements[j];
+            elements[j] = elements[pivot];
+            elements[pivot] = temp;
+        }
+        else
+        {
+            temp = elements[i];
+            elements[i] = elements[j];
+            elements[j] = temp;
+        }
+    }
+    sort_elements_by_idx(elements, start, j - 1);
+    sort_elements_by_idx(elements, j + 1, end);
+}
+
 int main(int argc, char** argv)
 {
 	if (argc != 2) {
@@ -43,8 +78,11 @@ int main(int argc, char** argv)
 
 	printf("%d\n\n", partitionable);
 
+	sort_elements_by_idx(elements, 0, nmemb-1);
+
 	for (int j = 0; j < partitionable; j++) {
 		printf("[%02d]\n", j);
+		sum[0] = 0; sum[1] = 0;
 		for (int i = 0; i < nmemb; i++) {
 			printf("%d\n", elements[i].groupId[j]);
 			sum[elements[i].groupId[j]] += elements[i].value;
